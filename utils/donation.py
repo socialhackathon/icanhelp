@@ -26,4 +26,3 @@ class Donation:
             and self.sum is not None\
             and self.sum != 0:
             return self.payment_system_urls[self.payment_system].format(self.donation_id, self.sum)
-            
