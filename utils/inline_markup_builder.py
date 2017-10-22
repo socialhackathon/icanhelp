@@ -38,15 +38,15 @@ class InlineMarkupBuilder:
 
     def build_initial_markup(donation_id):
         return InlineMarkupBuilder()\
-            .add_callback_button("Пожертвовать", json.dumps({"id": donation_id, "cmd": "payment_step"}))\
-            .to_markup()
+                .add_callback_button("Пожертвовать", json.dumps({"id": donation_id, "cmd": "payment_step"}))\
+                .to_markup()
 
     def build_main_markup(donation):
         donation_id = donation.donation_id
         payment_url = donation.make_payment_url()
         builder = InlineMarkupBuilder()\
-            .add_callback_button("Изменить платежку", json.dumps({"id": donation_id, "cmd": "to_payment"}))\
-            .add_callback_button("Изменить сумму", json.dumps({"id": donation_id, "cmd": "to_sum"}))
+                .add_callback_button("Изменить платежку", json.dumps({"id": donation_id, "cmd": "to_payment"}))\
+                .add_callback_button("Изменить сумму", json.dumps({"id": donation_id, "cmd": "to_sum"}))
         if payment_url is not None:
             logging.info("Sending payment url for donation id {}".format(donation_id))
             builder.new_line().add_url_button("Оплатить!", url=payment_url)
@@ -55,28 +55,38 @@ class InlineMarkupBuilder:
 
     def build_payment_markup(donation_id):
         return InlineMarkupBuilder()\
-            .add_callback_button("Мобильник", json.dumps({"id": donation_id, "cmd": "set_payment", "v": "mobilnik"}))\
-            .new_line()\
-            .add_callback_button("Элсом", json.dumps({"id": donation_id, "cmd": "set_payment", "v": "elsom"}))\
-            .new_line()\
-            .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
-            .to_markup()
+                .add_callback_button("Мобильник", json.dumps({"id": donation_id, "cmd": "set_payment", "v": "mobilnik"}))\
+                .new_line()\
+                .add_callback_button("Элсом", json.dumps({"id": donation_id, "cmd": "set_payment", "v": "elsom"}))\
+                .new_line()\
+                .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
+                .to_markup()
 
     def build_sum_markup(donation_id):
         return InlineMarkupBuilder()\
-            .add_callback_button("100", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "100"}))\
-            .new_line()\
-            .add_callback_button("200", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "200"}))\
-            .new_line()\
-            .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
-            .to_markup()
+                .add_callback_button("100", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "100"}))\
+                .new_line()\
+                .add_callback_button("200", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "200"}))\
+                .new_line()\
+                .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
+                .to_markup()
 
     def build_payment_step_markup(donation_id):
         return InlineMarkupBuilder()\
-            .add_callback_button("Мобильник", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "mobilnik"}))\
-            .new_line()\
-            .add_callback_button("Элсом", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "elsom"}))\
-            .new_line()\
-            .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
-            .to_markup()
+                .add_callback_button("Мобильник", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "mobilnik"}))\
+                .new_line()\
+                .add_callback_button("Элсом", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "elsom"}))\
+                .new_line()\
+                .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
+                .to_markup()
+
+    def build_mydonations_markup():
+        return InlineMarkupBuilder()\
+                .add_callback_button("Мобильник 1000 сом", json.dumps({"id": 0, "cmd": "show_donation"}))\
+                .new_line()\
+                .add_callback_button("Элсом 2000 сом", json.dumps({"id": 1, "cmd": "show_donation"}))\
+                .new_line()\
+                .add_callback_button("Мобильник 500 сом", json.dumps({"id": 2, "cmd": "show_donation"}))\
+                .new_line()\
+                .to_markup()
 
