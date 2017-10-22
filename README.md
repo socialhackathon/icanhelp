@@ -17,3 +17,11 @@ pip install -r requirements.txt
 python bot.py  
 ```
 
+### Файл конфигурации
+config.py  
+
+CHANNEL_ID: канал для рассылки оповещений  
+STUB_SEND_INTERVAL: интервал рассылки тестовых оповещений  
+BOT_TOKEN: aвторизационный токен бота  
+RESOURCES_DIR: имя папки с тестовыми ресурсами  
+
