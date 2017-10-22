@@ -14,15 +14,12 @@ class Donation:
     def __init__(self, donation_id):
         self.donation_id = donation_id
         self.payment_system = None
-        self.sum = None
+        self.sum = 0
         self.payment_system_urls = {
             "mobilnik": "https://mobilnik.kg/pay?to={}&sum={}",
             "elsom": "https://elsom.kg/pay?rcpt={}&value={}"
         }
 
     def make_payment_url(self):
-        if self.payment_system is not None\
-            and self.payment_system in self.payment_system_urls\
-            and self.sum is not None\
-            and self.sum != 0:
+        if self.payment_system is not None and self.payment_system in self.payment_system_urls:
             return self.payment_system_urls[self.payment_system].format(self.donation_id, self.sum)

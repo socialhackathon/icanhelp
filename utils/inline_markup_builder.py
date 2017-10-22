@@ -66,7 +66,11 @@ class InlineMarkupBuilder:
         return InlineMarkupBuilder()\
                 .add_callback_button("100", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "100"}))\
                 .new_line()\
-                .add_callback_button("200", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "200"}))\
+                .add_callback_button("500", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "500"}))\
+                .new_line()\
+                .add_callback_button("1000", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "1000"}))\
+                .new_line()\
+                .add_callback_button("Другое", json.dumps({"id": donation_id, "cmd": "set_sum", "v": "other"}))\
                 .new_line()\
                 .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
                 .to_markup()

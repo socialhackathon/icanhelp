@@ -40,7 +40,7 @@ def sum_step_handler(user_id, donation_id, json_data):
 
 def set_sum_handler(user_id, donation_id, json_data):
     session = Donation.get_session(user_id, donation_id)
-    session.sum = json_data["v"]
+    session.sum = 0 if json_data["v"] == "other" else json_data["v"]
     return InlineMarkupBuilder.build_main_markup(session)
 
 
