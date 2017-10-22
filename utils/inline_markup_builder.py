@@ -57,6 +57,8 @@ class InlineMarkupBuilder:
         return InlineMarkupBuilder()\
                 .add_callback_button("Мобильник", json.dumps({"id": donation_id, "cmd": "set_payment", "v": "mobilnik"}))\
                 .new_line()\
+                .add_callback_button("Яндекс", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "yandex"}))\
+                .new_line()\
                 .add_callback_button("Элсом", json.dumps({"id": donation_id, "cmd": "set_payment", "v": "elsom"}))\
                 .new_line()\
                 .add_callback_button("Назад!", json.dumps({"id": donation_id, "cmd": "to_main"}))\
@@ -78,6 +80,8 @@ class InlineMarkupBuilder:
     def build_payment_step_markup(donation_id):
         return InlineMarkupBuilder()\
                 .add_callback_button("Мобильник", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "mobilnik"}))\
+                .new_line()\
+                .add_callback_button("Яндекс", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "yandex"}))\
                 .new_line()\
                 .add_callback_button("Элсом", json.dumps({"id": donation_id, "cmd": "sum_step", "v": "elsom"}))\
                 .new_line()\

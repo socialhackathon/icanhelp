@@ -16,10 +16,11 @@ class Donation:
         self.payment_system = None
         self.sum = 0
         self.payment_system_urls = {
-            "mobilnik": "https://mobilnik.kg/pay?to={}&sum={}",
-            "elsom": "https://elsom.kg/pay?rcpt={}&value={}"
+            "mobilnik": "https://demomoney.yandex.ru/to/4100324939028/{}",
+            "elsom": "https://demomoney.yandex.ru/to/4100324939028/{}",
+            "yandex": "https://demomoney.yandex.ru/to/4100324939028/{}"
         }
 
     def make_payment_url(self):
         if self.payment_system is not None and self.payment_system in self.payment_system_urls:
-            return self.payment_system_urls[self.payment_system].format(self.donation_id, self.sum)
+            return self.payment_system_urls[self.payment_system].format(self.sum)
