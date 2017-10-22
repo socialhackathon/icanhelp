@@ -60,11 +60,11 @@ def show_donation_handler(bot, update):
     donation_id = json_data["id"]
     stub_donations = [
         {"payment_system": "Мобильник", "sum": 1000, "spent": [
-            {"sum": 1000, "for": "На дело"}
+            {"sum": 1000, "for": "На обследование"}
         ]},
         {"payment_system": "Элсом", "sum": 2000, "spent": [
-            {"sum": 500, "for": "Туда"},
-            {"sum": 1000, "for": "Сюда"}
+            {"sum": 500, "for": "На стационар"},
+            {"sum": 1000, "for": "На лекарства"}
         ]},
         {"payment_system": "Мобильник", "sum": 500, "spent": []}
     ]
